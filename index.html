@@ -282,13 +282,17 @@ function triggerYear(index) {
           speed: 600,
         });
 
-        splideInstance.on('mounted move', () => {
-          triggerFloatIn(splideInstance.index);
-           triggerFlush(splideInstance.index);
-             triggerYear(splideInstance.index);
+        // splideInstance.on('mounted move', () => {
+        //   triggerFloatIn(splideInstance.index);
+        //    triggerFlush(splideInstance.index);
+        //      triggerYear(splideInstance.index);
 
-        });
-        
+        // });
+        requestAnimationFrame(() => {
+  triggerFloatIn(0);
+  triggerFlush(0);
+  triggerYear(0);
+});
 
         splideInstance.mount();
 
