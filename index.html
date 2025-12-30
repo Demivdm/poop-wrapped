@@ -1,362 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Splide CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-  />
+    <!-- Splide CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
 
-  <title>poop wrapped 2025</title>
+    <title>poop wrapped 2025</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #f4f0f0;
-      color: black;
-      font-family: system-ui, sans-serif;
-    }
+    <style>
+        body {
+            margin: 0;
+            background: #f4f0f0;
+            color: black;
+            font-family: system-ui, sans-serif;
+        }
 
-    .splide,
-    .splide__track,
-    .splide__list,
-    .splide__slide {
-      height: 100vh;
-    }
+        .splide,
+        .splide__track,
+        .splide__list,
+        .splide__slide {
+            height: 100vh;
+        }
 
-    .slide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-size: 3rem;
-    }
-    /* Blob base style */
- .blob, svg.blob {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.25;
-  pointer-events: none;
-  user-select: none;
-  mix-blend-mode: multiply;
-  width: 220px;
-  height: 220px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
+        .slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 3rem;
+        }
 
-/* Specific shapes and colors */
-.blob1 {
-  width: 280px;
-  height: 320px;
-  background: none; 
-  top: 20%;
-  left: 10%;
-}
-.blob2 {
-  width: 280px;
-  height: 280px;
-  background: none; 
-  top: 55%;
-  left: 65%;
-}
-.blob3 {
-  background: none;
-  top: 75%;
-  left: 30%;
-}
+        /* Blob base style */
+        .blob,
+        svg.blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.25;
+            pointer-events: none;
+            user-select: none;
+            mix-blend-mode: multiply;
+            width: 220px;
+            height: 220px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
 
-/* Animations*/
-.float-in {
-  animation-name: floatIn;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  opacity: 0; 
-}
+        /* Specific shapes and colors */
+        .blob1 {
+            width: 280px;
+            height: 320px;
+            background: none;
+            top: 20%;
+            left: 10%;
+        }
 
-/* Float-in keyframes */
-@keyframes floatIn {
-  0% {
-    transform: translate(-50%, 50%) scale(1);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(2);
-  }
-}
-/* flush animation */
-@keyframes flushDown {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(40px) scale(0.9) rotate(5deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(120px) scale(0.2) rotate(25deg);
-  }
-}
+        .blob2 {
+            width: 280px;
+            height: 280px;
+            background: none;
+            top: 55%;
+            left: 65%;
+        }
 
-.flush {
-  animation: flushDown 1s ease-in forwards;
-  animation-delay: 2.5s;
-  width: 100px;
- 
-}
-.poop{
-    font-size: 60px;
-}
-.wrapped{
-    font-size: 38px;
-}
-.flush-text{
-    position: absolute;
-   display: flex;
-   flex-direction: column;
-   text-transform: uppercase;
-   margin: 0;
-   left: 45px;
-   
-}
-.toilet{
-    position: absolute;
-    margin-top: 10rem;
-    width: 380px;
-}
-/* year animation */
-.year {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 140px;
-  font-weight: 900;
-  font-style: italic;
-  margin: 0;
-  opacity: 0;
-}
-.year-fly {
-  animation: yearFlyIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+        .blob3 {
+            background: none;
+            top: 75%;
+            left: 30%;
+        }
 
-@keyframes yearFlyIn {
-  0% {
-    transform: translate(120vw, 0) rotate(12deg);
-    opacity: 0;
-  }
-  70% {
-    transform: translate(-45%, 0) rotate(-3deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, 0) rotate(0deg);
-    opacity: 1;
-  }
-}
-.layout{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-.demi{
-    text-align: center;
-}
-.joost{
-    text-align: center;
-}
-.circle{
-    width: 160px;
-    height: 155px;
-    background-color: #B7D2EA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-p{
-    margin: 0;
-}
+        /* Animations*/
+        .float-in {
+            animation-name: floatIn;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+            opacity: 0;
+        }
+
+        /* Float-in keyframes */
+        @keyframes floatIn {
+            0% {
+                transform: translate(-50%, 50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+
+        /* flush animation */
+        @keyframes flushDown {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(40px) scale(0.9) rotate(5deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(120px) scale(0.2) rotate(25deg);
+            }
+        }
+
+        .flush {
+            animation: flushDown 1s ease-in forwards;
+            animation-delay: 2.5s;
+            width: 100px;
+
+        }
+
+        .poop {
+            font-size: 60px;
+        }
+
+        .wrapped {
+            font-size: 38px;
+        }
+
+        .flush-text {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+            margin: 0;
+            left: 45px;
+
+        }
+
+        .toilet {
+            position: absolute;
+            margin-top: 10rem;
+            width: 380px;
+        }
+
+        /* year animation */
+        .year {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 140px;
+            font-weight: 900;
+            font-style: italic;
+            margin: 0;
+            opacity: 0;
+        }
+
+        .year-fly {
+            animation: yearFlyIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes yearFlyIn {
+            0% {
+                transform: translate(120vw, 0) rotate(12deg);
+                opacity: 0;
+            }
+
+            70% {
+                transform: translate(-45%, 0) rotate(-3deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, 0) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .layout {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .demi, .joost {
+            text-align: center;
+        }
+        .demi h3, .joost h3{
+            font-weight: 400;
+            font-size: 30px;
 
 
-  </style>
+        }
+      
+       
+
+        .circle {
+            width: 160px;
+            height: 155px;
+            background-color: #B7D2EA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        p,
+        h2 {
+            margin: 0;
+        }
+        h2{
+            font-size: 45px;
+            text-align: center;
+            font-style: italic;
+            font-weight: 900;
+            margin: 0 15px 0 15px;
+
+        }
+        p{
+            font-size: 50px;
+            font-weight: 900;
+            font-style: italic;
+        }
+        h4{
+                font-size: 50px;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 30px;
+             text-transform: uppercase;
+            
+
+        }
+        .newyear{
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div id="app">
-    <div class="splide" ref="splide">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <li class="splide__slide slide">
-            <h2 class="year">2025</h2>
-            <h1 class="flush-text"><span class="poop">poop</span><span class="wrapped">wrapped</span></h1>
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
-  <path fill="#8b6a2f" d="M50.4,-45.5C59.5,-28.8,56.9,-8.2,53.8,15C50.7,38.2,47,64,33.9,70.3C20.8,76.6,-1.7,63.5,-19.8,51C-37.8,38.5,-51.3,26.6,-55,12.1C-58.7,-2.4,-52.5,-19.7,-41.7,-36.8C-30.9,-53.9,-15.4,-70.9,2.6,-72.9C20.7,-75,41.3,-62.2,50.4,-45.5Z" transform="translate(100 100)" />
-</svg>
-<img class="toilet" src="toilet-hk131cceg18s64nmt72kw.webp" alt="toilet">
+    <div id="app">
+        <div class="splide" ref="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide slide">
+                        <h2 class="year">2025</h2>
+                        <h1 class="flush-text"><span class="poop">poop</span><span class="wrapped">wrapped</span></h1>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
+                            <path fill="#8b6a2f"
+                                d="M50.4,-45.5C59.5,-28.8,56.9,-8.2,53.8,15C50.7,38.2,47,64,33.9,70.3C20.8,76.6,-1.7,63.5,-19.8,51C-37.8,38.5,-51.3,26.6,-55,12.1C-58.7,-2.4,-52.5,-19.7,-41.7,-36.8C-30.9,-53.9,-15.4,-70.9,2.6,-72.9C20.7,-75,41.3,-62.2,50.4,-45.5Z"
+                                transform="translate(100 100)" />
+                        </svg>
+                        <img class="toilet" src="toilet-hk131cceg18s64nmt72kw.webp" alt="toilet">
 
-          </li>
-          
-          <li class="splide__slide slide">
-            <h2>title</h2>
-            <section class="layout">
-                <div class="joost">
-                    <h3>Joost</h3>
-                    <div class="circle">
-                        <p>getal</p>
-                    </div>
-                </div>
-                <div class="demi">
-                    <h3>Demi</h3>
-                    <div class="circle">
-                        <p>getal</p>
-                    </div>
-                </div>
-            </section>
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
-  <path fill="#8b6a2f" d="M52.7,-61C68,-61.4,79.9,-45.6,79.8,-29.8C79.6,-13.9,67.4,2,56.4,12.9C45.4,23.7,35.5,29.5,26.3,42C17.1,54.5,8.6,73.6,-1.7,75.9C-11.9,78.2,-23.9,63.7,-32.1,51C-40.3,38.2,-44.8,27.1,-47.6,16.1C-50.4,5,-51.3,-6,-45.1,-11.4C-38.8,-16.8,-25.3,-16.5,-16.6,-18.3C-7.9,-20.1,-4,-23.8,7.4,-33.9C18.7,-44.1,37.4,-60.6,52.7,-61Z" transform="translate(100 100)" />
-</svg>
+                    </li>
 
-          </li>
-          <li class="splide__slide slide">Slide 3
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-  <path fill="#8b6a2f" d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z" transform="translate(100 100)" />
-</svg>
+                    <li class="splide__slide slide">
+                        <h2>TOTALE
+ HOEVEELHEID
+2025</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>576</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>250</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob2">
+                            <path fill="#8b6a2f"
+                                d="M52.7,-61C68,-61.4,79.9,-45.6,79.8,-29.8C79.6,-13.9,67.4,2,56.4,12.9C45.4,23.7,35.5,29.5,26.3,42C17.1,54.5,8.6,73.6,-1.7,75.9C-11.9,78.2,-23.9,63.7,-32.1,51C-40.3,38.2,-44.8,27.1,-47.6,16.1C-50.4,5,-51.3,-6,-45.1,-11.4C-38.8,-16.8,-25.3,-16.5,-16.6,-18.3C-7.9,-20.1,-4,-23.8,7.4,-33.9C18.7,-44.1,37.4,-60.6,52.7,-61Z"
+                                transform="translate(100 100)" />
+                        </svg>
 
-          </li>
-        </ul>
-      </div>
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>GEMIDDELDE 
+PER DAG</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>1.57</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>0.71</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>LANGSTE 
+STREAK</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>170</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>12</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>KORTSTE STREAK</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>29</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>1</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>HOEVEELHEID DAGEN ACHTER ELKAAR NIET GEPOEPT</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>1</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>3</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>MEESTE KEREN OP 1 DAG</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>4</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>3</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>TOTAAL DAGEN NIET GEPOEPT</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>4</p>
+                                </div>
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>125</p>
+                                </div>
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide">
+                        <h2>MEESTE GEPOEPTE IN EEN MAAND</h2>
+                        <section class="layout">
+                            <div class="joost">
+                                <h3>Joost</h3>
+                                <div class="circle">
+                                    <p>59</p>
+
+                                </div>
+                                    <h4>in juni</h4>
+
+                            </div>
+                            <div class="demi">
+                                <h3>Demi</h3>
+                                <div class="circle">
+                                    <p>29</p>
+                                </div>
+                                    <h4>in maart</h4>
+
+                            </div>
+                        </section>
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+                            <path fill="#8b6a2f"
+                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                    </li>
+                    <li class="splide__slide slide newyear">
+                        <h2>Gelukkig nieuwjaar!</h2>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Vue -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 
-  <!-- Splide JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
-  <script>
-  const { createApp, onMounted, ref } = Vue;
+    <script>
+        const { createApp, onMounted, ref } = Vue;
 
-  createApp({
-    setup() {
-      const splide = ref(null);
+        createApp({
+            setup() {
+                const splide = ref(null);
 
-      function triggerFloatIn(index) {
-  const slides = splide.value.querySelectorAll('.splide__slide');
-  const activeSlide = slides[index];
-  if (!activeSlide) return;
+                function triggerFloatIn(index) {
+                    const slides = splide.value.querySelectorAll('.splide__slide');
+                    const activeSlide = slides[index];
+                    if (!activeSlide) return;
 
-  const blobs = activeSlide.querySelectorAll('.blob, svg.blob');
-// loop though all blobs
-  blobs.forEach(blob => {
-    blob.classList.remove('float-in'); // remove class
+                    const blobs = activeSlide.querySelectorAll('.blob, svg.blob');
+                    // loop though all blobs
+                    blobs.forEach(blob => {
+                        blob.classList.remove('float-in'); // remove class
 
-    // Force reflow
-    // WAT IS VOID
-    void blob.offsetWidth;
+                        // Force reflow
+                        // WAT IS VOID
+                        void blob.offsetWidth;
 
-    // Add class in next event loop to retrigger animation
-    setTimeout(() => {
-      blob.classList.add('float-in');
-    }, 20); 
-  });
-}
-// flush trigger
-function flushWords(el) {
-  el.classList.remove('flush');
-  void el.offsetWidth; // force reflow
-  el.classList.add('flush');
-}
-// year animation trigger
-function triggerYear(index) {
-  const slides = splide.value.querySelectorAll('.splide__slide');
-  const activeSlide = slides[index];
-  if (!activeSlide) return;
+                        // Add class in next event loop to retrigger animation
+                        setTimeout(() => {
+                            blob.classList.add('float-in');
+                        }, 20);
+                    });
+                }
+                // flush trigger
+                function flushWords(el) {
+                    el.classList.remove('flush');
+                    void el.offsetWidth; // force reflow
+                    el.classList.add('flush');
+                }
+                // year animation trigger
+                function triggerYear(index) {
+                    const slides = splide.value.querySelectorAll('.splide__slide');
+                    const activeSlide = slides[index];
+                    if (!activeSlide) return;
 
-  const year = activeSlide.querySelector('.year');
-  if (!year) return;
+                    const year = activeSlide.querySelector('.year');
+                    if (!year) return;
 
-  year.classList.remove('year-fly');
-  void year.offsetWidth; // force reflow
-  year.classList.add('year-fly');
-}
-
+                    year.classList.remove('year-fly');
+                    void year.offsetWidth; // force reflow
+                    year.classList.add('year-fly');
+                }
 
 
-      onMounted(() => {
-        function triggerFlush(index) {
-  const slides = splide.value.querySelectorAll('.splide__slide');
-  const activeSlide = slides[index];
-  if (!activeSlide) return;
 
-  const texts = activeSlide.querySelectorAll('.flush-text');
+                onMounted(() => {
+                    function triggerFlush(index) {
+                        const slides = splide.value.querySelectorAll('.splide__slide');
+                        const activeSlide = slides[index];
+                        if (!activeSlide) return;
 
-  texts.forEach(text => {
-    // Reset animation
-    text.classList.remove('flush');
+                        const texts = activeSlide.querySelectorAll('.flush-text');
 
-    // Force browser to forget previous animation
-    void text.offsetWidth;
+                        texts.forEach(text => {
+                            // Reset animation
+                            text.classList.remove('flush');
 
-    // Re-add flush (delay applies again)
-    text.classList.add('flush');
-  });
-}
+                            // Force browser to forget previous animation
+                            void text.offsetWidth;
 
-        const splideInstance = new Splide(splide.value, {
-          direction: 'ttb',
-          height: '100vh',
-          wheel: false,
-          pagination: false,
-          arrows: false,
-          drag: true,
-          speed: 600,
-        });
+                            // Re-add flush (delay applies again)
+                            text.classList.add('flush');
+                        });
+                    }
 
-        // splideInstance.on('mounted move', () => {
-        //   triggerFloatIn(splideInstance.index);
-        //    triggerFlush(splideInstance.index);
-        //      triggerYear(splideInstance.index);
+                    const splideInstance = new Splide(splide.value, {
+                        direction: 'ttb',
+                        height: '100vh',
+                        wheel: false,
+                        pagination: false,
+                        arrows: false,
+                        drag: true,
+                        speed: 600,
+                    });
 
-        // });
- function triggerAllAnimations(index) {
-    triggerFloatIn(index);
-    triggerFlush(index);
-    triggerYear(index);
-  }
+                    // splideInstance.on('mounted move', () => {
+                    //   triggerFloatIn(splideInstance.index);
+                    //    triggerFlush(splideInstance.index);
+                    //      triggerYear(splideInstance.index);
 
-  // Trigger initial animations on mount with delay (fix mobile)
-  splideInstance.on('mounted', () => {
-    setTimeout(() => {
-      triggerAllAnimations(0);
-    }, 50);
-  });
+                    // });
+                    function triggerAllAnimations(index) {
+                        triggerFloatIn(index);
+                        triggerFlush(index);
+                        triggerYear(index);
+                    }
 
-  // Trigger animations immediately on slide move
-  splideInstance.on('move', (newIndex) => {
-    triggerAllAnimations(newIndex);
-  });
+                    // Trigger initial animations on mount with delay (fix mobile)
+                    splideInstance.on('mounted', () => {
+                        setTimeout(() => {
+                            triggerAllAnimations(0);
+                        }, 50);
+                    });
 
-        splideInstance.mount();
+                    // Trigger animations immediately on slide move
+                    splideInstance.on('move', (newIndex) => {
+                        triggerAllAnimations(newIndex);
+                    });
 
-        // Trigger float-in on first slide load
-        triggerFloatIn(0);
-      });
+                    splideInstance.mount();
 
-      return { splide };
-    }
-  }).mount('#app');
-</script>
+                    // Trigger float-in on first slide load
+                    triggerFloatIn(0);
+                });
+
+                return { splide };
+            }
+        }).mount('#app');
+    </script>
 
 
 </body>
+
 </html>
