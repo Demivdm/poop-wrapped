@@ -88,6 +88,78 @@
     transform: translate(-50%, -50%) scale(2);
   }
 }
+/* flush animation */
+@keyframes flushDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(40px) scale(0.9) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120px) scale(0.2) rotate(25deg);
+  }
+}
+
+.flush {
+  animation: flushDown 1s ease-in forwards;
+  animation-delay: 2.5s;
+  width: 100px;
+ 
+}
+.poop{
+    font-size: 60px;
+}
+.wrapped{
+    font-size: 38px;
+}
+.flush-text{
+    position: absolute;
+   display: flex;
+   flex-direction: column;
+   text-transform: uppercase;
+   margin: 0;
+   left: 45px;
+   
+}
+.toilet{
+    position: absolute;
+    margin-top: 10rem;
+    width: 380px;
+}
+/* year animation */
+.year {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 140px;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  opacity: 0;
+}
+.year-fly {
+  animation: yearFlyIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes yearFlyIn {
+  0% {
+    transform: translate(120vw, 0) rotate(12deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(-45%, 0) rotate(-3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
 
 
   </style>
@@ -99,12 +171,12 @@
       <div class="splide__track">
         <ul class="splide__list">
           <li class="splide__slide slide">
-            <h1>poop wrapped</h1>
-            <h2>slide 1</h2>
+            <h2 class="year">2025</h2>
+            <h1 class="flush-text"><span class="poop">poop</span><span class="wrapped">wrapped</span></h1>
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
   <path fill="#8b6a2f" d="M50.4,-45.5C59.5,-28.8,56.9,-8.2,53.8,15C50.7,38.2,47,64,33.9,70.3C20.8,76.6,-1.7,63.5,-19.8,51C-37.8,38.5,-51.3,26.6,-55,12.1C-58.7,-2.4,-52.5,-19.7,-41.7,-36.8C-30.9,-53.9,-15.4,-70.9,2.6,-72.9C20.7,-75,41.3,-62.2,50.4,-45.5Z" transform="translate(100 100)" />
 </svg>
-
+<img class="toilet" src="toilet-hk131cceg18s64nmt72kw.webp" alt="toilet">
 
           </li>
           
@@ -158,9 +230,48 @@
     }, 20); 
   });
 }
+// flush trigger
+function flushWords(el) {
+  el.classList.remove('flush');
+  void el.offsetWidth; // force reflow
+  el.classList.add('flush');
+}
+// year animation trigger
+function triggerYear(index) {
+  const slides = splide.value.querySelectorAll('.splide__slide');
+  const activeSlide = slides[index];
+  if (!activeSlide) return;
+
+  const year = activeSlide.querySelector('.year');
+  if (!year) return;
+
+  year.classList.remove('year-fly');
+  void year.offsetWidth; // force reflow
+  year.classList.add('year-fly');
+}
+
 
 
       onMounted(() => {
+        function triggerFlush(index) {
+  const slides = splide.value.querySelectorAll('.splide__slide');
+  const activeSlide = slides[index];
+  if (!activeSlide) return;
+
+  const texts = activeSlide.querySelectorAll('.flush-text');
+
+  texts.forEach(text => {
+    // Reset animation
+    text.classList.remove('flush');
+
+    // Force browser to forget previous animation
+    void text.offsetWidth;
+
+    // Re-add flush (delay applies again)
+    text.classList.add('flush');
+  });
+}
+
         const splideInstance = new Splide(splide.value, {
           direction: 'ttb',
           height: '100vh',
@@ -173,7 +284,11 @@
 
         splideInstance.on('mounted move', () => {
           triggerFloatIn(splideInstance.index);
+           triggerFlush(splideInstance.index);
+             triggerYear(splideInstance.index);
+
         });
+        
 
         splideInstance.mount();
 
