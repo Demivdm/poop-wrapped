@@ -10,13 +10,13 @@
     href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
   />
 
-  <title>Wrapped Slides</title>
+  <title>poop wrapped 2025</title>
 
   <style>
     body {
       margin: 0;
-      background: #121212;
-      color: white;
+      background: #f4f0f0;
+      color: black;
       font-family: system-ui, sans-serif;
     }
 
@@ -31,8 +31,65 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       font-size: 3rem;
     }
+    /* Blob base style */
+ .blob, svg.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: multiply;
+  width: 220px;
+  height: 220px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Specific shapes and colors */
+.blob1 {
+  width: 280px;
+  height: 320px;
+  background: none; 
+  top: 20%;
+  left: 10%;
+}
+.blob2 {
+  width: 280px;
+  height: 280px;
+  background: none; 
+  top: 55%;
+  left: 65%;
+}
+.blob3 {
+  background: none;
+  top: 75%;
+  left: 30%;
+}
+
+/* Animations*/
+.float-in {
+  animation-name: floatIn;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0; 
+}
+
+/* Float-in keyframes */
+@keyframes floatIn {
+  0% {
+    transform: translate(-50%, 50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -41,9 +98,28 @@
     <div class="splide" ref="splide">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide slide">Slide 1</li>
-          <li class="splide__slide slide">Slide 2</li>
-          <li class="splide__slide slide">Slide 3</li>
+          <li class="splide__slide slide">
+            <h1>poop wrapped</h1>
+            <h2>slide 1</h2>
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
+  <path fill="#8b6a2f" d="M50.4,-45.5C59.5,-28.8,56.9,-8.2,53.8,15C50.7,38.2,47,64,33.9,70.3C20.8,76.6,-1.7,63.5,-19.8,51C-37.8,38.5,-51.3,26.6,-55,12.1C-58.7,-2.4,-52.5,-19.7,-41.7,-36.8C-30.9,-53.9,-15.4,-70.9,2.6,-72.9C20.7,-75,41.3,-62.2,50.4,-45.5Z" transform="translate(100 100)" />
+</svg>
+
+
+          </li>
+          
+          <li class="splide__slide slide">Slide 2
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob1">
+  <path fill="#8b6a2f" d="M52.7,-61C68,-61.4,79.9,-45.6,79.8,-29.8C79.6,-13.9,67.4,2,56.4,12.9C45.4,23.7,35.5,29.5,26.3,42C17.1,54.5,8.6,73.6,-1.7,75.9C-11.9,78.2,-23.9,63.7,-32.1,51C-40.3,38.2,-44.8,27.1,-47.6,16.1C-50.4,5,-51.3,-6,-45.1,-11.4C-38.8,-16.8,-25.3,-16.5,-16.6,-18.3C-7.9,-20.1,-4,-23.8,7.4,-33.9C18.7,-44.1,37.4,-60.6,52.7,-61Z" transform="translate(100 100)" />
+</svg>
+
+          </li>
+          <li class="splide__slide slide">Slide 3
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
+  <path fill="#8b6a2f" d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z" transform="translate(100 100)" />
+</svg>
+
+          </li>
         </ul>
       </div>
     </div>
@@ -56,28 +132,60 @@
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
   <script>
-    const { createApp, onMounted, ref } = Vue;
+  const { createApp, onMounted, ref } = Vue;
 
-    createApp({
-      setup() {
-        const splide = ref(null);
+  createApp({
+    setup() {
+      const splide = ref(null);
 
-        onMounted(() => {
-          new Splide(splide.value, {
-            direction: 'ttb',     // vertical (top-to-bottom)
-            height: '100vh',
-            wheel: false,
-            pagination: false,
-            arrows: false,
-            drag: true,
-            speed: 600,
-          }).mount();
+      function triggerFloatIn(index) {
+  const slides = splide.value.querySelectorAll('.splide__slide');
+  const activeSlide = slides[index];
+  if (!activeSlide) return;
+
+  const blobs = activeSlide.querySelectorAll('.blob, svg.blob');
+// loop though all blobs
+  blobs.forEach(blob => {
+    blob.classList.remove('float-in'); // remove class
+
+    // Force reflow
+    // WAT IS VOID
+    void blob.offsetWidth;
+
+    // Add class in next event loop to retrigger animation
+    setTimeout(() => {
+      blob.classList.add('float-in');
+    }, 20); 
+  });
+}
+
+
+      onMounted(() => {
+        const splideInstance = new Splide(splide.value, {
+          direction: 'ttb',
+          height: '100vh',
+          wheel: false,
+          pagination: false,
+          arrows: false,
+          drag: true,
+          speed: 600,
         });
 
-        return { splide };
-      }
-    }).mount('#app');
-  </script>
+        splideInstance.on('mounted move', () => {
+          triggerFloatIn(splideInstance.index);
+        });
+
+        splideInstance.mount();
+
+        // Trigger float-in on first slide load
+        triggerFloatIn(0);
+      });
+
+      return { splide };
+    }
+  }).mount('#app');
+</script>
+
 
 </body>
 </html>
