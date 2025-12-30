@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Splide CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+  />
+
+  <title>Wrapped Slides</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: white;
+      font-family: system-ui, sans-serif;
+    }
+
+    .splide,
+    .splide__track,
+    .splide__list,
+    .splide__slide {
+      height: 100vh;
+    }
+
+    .slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <div class="splide" ref="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide slide">Slide 1</li>
+          <li class="splide__slide slide">Slide 2</li>
+          <li class="splide__slide slide">Slide 3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- Splide JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+  <script>
+    const { createApp, onMounted, ref } = Vue;
+
+    createApp({
+      setup() {
+        const splide = ref(null);
+
+        onMounted(() => {
+          new Splide(splide.value, {
+            direction: 'ttb',     // vertical (top-to-bottom)
+            height: '100vh',
+            wheel: false,
+            pagination: false,
+            arrows: false,
+            drag: true,
+            speed: 600,
+          }).mount();
+        });
+
+        return { splide };
+      }
+    }).mount('#app');
+  </script>
+
+</body>
+</html>
