@@ -288,11 +288,23 @@ function triggerYear(index) {
         //      triggerYear(splideInstance.index);
 
         // });
-        requestAnimationFrame(() => {
-  triggerFloatIn(0);
-  triggerFlush(0);
-  triggerYear(0);
-});
+ function triggerAllAnimations(index) {
+    triggerFloatIn(index);
+    triggerFlush(index);
+    triggerYear(index);
+  }
+
+  // Trigger initial animations on mount with delay (fix mobile)
+  splideInstance.on('mounted', () => {
+    setTimeout(() => {
+      triggerAllAnimations(0);
+    }, 50);
+  });
+
+  // Trigger animations immediately on slide move
+  splideInstance.on('move', (newIndex) => {
+    triggerAllAnimations(newIndex);
+  });
 
         splideInstance.mount();
 
