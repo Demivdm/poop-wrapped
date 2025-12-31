@@ -22,7 +22,7 @@
         .splide__track,
         .splide__list,
         .splide__slide {
-            height: 100vh;
+            height: 100dvh;
         }
 
         .slide {
@@ -71,6 +71,18 @@
             background: none;
             top: 75%;
             left: 30%;
+        }
+
+        .blob4{
+            width: 280px;
+            height: 280px;
+            background: none;
+            top: 55%;
+            left: 65%;
+           
+  aspect-ratio: 1;
+  clip-path: shape(from 89.99% 42.85%,curve to 90.22% 57.24% with 88.29% 50.00%,curve to 89.63% 71.68% with 92.15% 64.47%,curve to 77.86% 78.68% with 87.12% 78.89%,curve to 64.12% 83.25% with 68.60% 78.47%,curve to 52.99% 91.07% with 59.63% 88.04%,curve to 38.32% 94.52% with 46.35% 94.11%,curve to 28.70% 84.90% with 30.29% 94.94%,curve to 16.84% 74.18% with 27.12% 74.86%,curve to 7.63% 65.20% with 6.56% 73.51%,curve to 13.64% 50.82% with 8.70% 56.89%,curve to 18.73% 38.96% with 18.57% 44.75%,curve to 21.69% 27.73% with 18.89% 33.16%,curve to 28.70% 16.66% with 24.50% 22.30%,curve to 39.69% 9.22% with 32.90% 11.02%,curve to 52.65% 11.27% with 46.47% 7.42%,curve to 65.43% 15.70% with 58.84% 15.11%,curve to 79.69% 18.61% with 72.02% 16.30%,curve to 89.52% 28.30% with 87.37% 20.92%,curve to 89.99% 42.85% with 91.68% 35.69%);
+
         }
 
         /* Animations*/
@@ -321,11 +333,8 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                        <div class="blob4"></div>
+                     
 
                     </li>
                     <li class="splide__slide slide">
@@ -535,7 +544,7 @@ STREAK</h2>
 
                     const splideInstance = new Splide(splide.value, {
                         direction: 'ttb',
-                        height: '100vh',
+                        height: '100dvh',
                         wheel: false,
                         pagination: false,
                         arrows: false,
