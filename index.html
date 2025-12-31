@@ -38,52 +38,72 @@
         svg.blob {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.25;
+            opacity:.75;
             pointer-events: none;
             user-select: none;
-            mix-blend-mode: multiply;
+            /* mix-blend-mode: multiply; */
             width: 220px;
             height: 220px;
-            top: 50%;
-            left: 50%;
+            /* top: 50%;
+            left: 50%; */
             transform: translate(-50%, -50%);
             z-index: -1;
+            background: none;
         }
 
         /* Specific shapes and colors */
         .blob1 {
             width: 280px;
             height: 320px;
-            background: none;
-            top: 20%;
-            left: 10%;
+        
+             top: 50%;
+            left: 50%;
         }
 
         .blob2 {
             width: 280px;
             height: 280px;
-            background: none;
-            top: 55%;
-            left: 65%;
-        }
-
-        .blob3 {
-            background: none;
-            top: 75%;
+     
+            top: 60%;
             left: 30%;
         }
 
+        .blob3 {
+          
+            top: 50%;
+            left: 50%;
+        }
+
         .blob4{
-            width: 280px;
-            height: 280px;
-             background: #8b6a2f;
+      
             top: 55%;
-            left: 65%;
-           
-  aspect-ratio: 1;
-  clip-path: shape(from 89.99% 42.85%,curve to 90.22% 57.24% with 88.29% 50.00%,curve to 89.63% 71.68% with 92.15% 64.47%,curve to 77.86% 78.68% with 87.12% 78.89%,curve to 64.12% 83.25% with 68.60% 78.47%,curve to 52.99% 91.07% with 59.63% 88.04%,curve to 38.32% 94.52% with 46.35% 94.11%,curve to 28.70% 84.90% with 30.29% 94.94%,curve to 16.84% 74.18% with 27.12% 74.86%,curve to 7.63% 65.20% with 6.56% 73.51%,curve to 13.64% 50.82% with 8.70% 56.89%,curve to 18.73% 38.96% with 18.57% 44.75%,curve to 21.69% 27.73% with 18.89% 33.16%,curve to 28.70% 16.66% with 24.50% 22.30%,curve to 39.69% 9.22% with 32.90% 11.02%,curve to 52.65% 11.27% with 46.47% 7.42%,curve to 65.43% 15.70% with 58.84% 15.11%,curve to 79.69% 18.61% with 72.02% 16.30%,curve to 89.52% 28.30% with 87.37% 20.92%,curve to 89.99% 42.85% with 91.68% 35.69%);
+            left: 60%;
+        }
+        .blob5{
+            top: 75%;
+            left: 50%;
 
         }
+        .blob6{
+            top: 60%;
+            left: 40%;
+
+        }
+        .blob7{
+             top: 50%;
+            left: 50%;
+        }
+         .blob8{
+             
+            left: 55%; 
+        }
+         .blob9{
+             top: 40%;
+            left: 60%; 
+        }
+ 
+ 
+ 
 
         /* Animations*/
         .float-in {
@@ -246,6 +266,151 @@
         .newyear{
             text-align: center;
         }
+        /* FIREWORKS */
+        @keyframes firework {
+  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+/* @keyframes fireworkPseudo {
+  0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+ */
+.firework,
+.firework::before,
+.firework::after
+{
+  --initialSize: 0.5vmin;
+  --finalSize: 45vmin;
+  --particleSize: 0.2vmin;
+  --color1: yellow;
+  --color2: khaki;
+  --color3: white;
+  --color4: lime;
+  --color5: gold;
+  --color6: mediumseagreen;
+  --y: -30vmin;
+  --x: -50%;
+  --initialY: 60vmin;
+  content: "";
+  animation: firework 2s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: 
+    /*
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,
+    */
+    
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    
+    /* bottom right */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+    
+    /* bottom left */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    
+    /* top left */
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    
+    /* top right */
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
+    ;
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+.firework::before {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework::after {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework:nth-child(2) {
+  --x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;  
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
     </style>
 </head>
 
@@ -286,7 +451,7 @@
                             </div>
                         </section>
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob2">
-                            <path fill="#8b6a2f"
+                            <path fill="#5A3E1B"
                                 d="M52.7,-61C68,-61.4,79.9,-45.6,79.8,-29.8C79.6,-13.9,67.4,2,56.4,12.9C45.4,23.7,35.5,29.5,26.3,42C17.1,54.5,8.6,73.6,-1.7,75.9C-11.9,78.2,-23.9,63.7,-32.1,51C-40.3,38.2,-44.8,27.1,-47.6,16.1C-50.4,5,-51.3,-6,-45.1,-11.4C-38.8,-16.8,-25.3,-16.5,-16.6,-18.3C-7.9,-20.1,-4,-23.8,7.4,-33.9C18.7,-44.1,37.4,-60.6,52.7,-61Z"
                                 transform="translate(100 100)" />
                         </svg>
@@ -310,7 +475,7 @@ PER DAG</h2>
                             </div>
                         </section>
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
+                            <path fill="#5A3E1B"
                                 d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
                                 transform="translate(100 100)" />
                         </svg>
@@ -333,12 +498,9 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob2">
-                            <path fill="#8b6a2f"
-                                d="M52.7,-61C68,-61.4,79.9,-45.6,79.8,-29.8C79.6,-13.9,67.4,2,56.4,12.9C45.4,23.7,35.5,29.5,26.3,42C17.1,54.5,8.6,73.6,-1.7,75.9C-11.9,78.2,-23.9,63.7,-32.1,51C-40.3,38.2,-44.8,27.1,-47.6,16.1C-50.4,5,-51.3,-6,-45.1,-11.4C-38.8,-16.8,-25.3,-16.5,-16.6,-18.3C-7.9,-20.1,-4,-23.8,7.4,-33.9C18.7,-44.1,37.4,-60.6,52.7,-61Z"
-                                transform="translate(100 100)" />
-                        </svg>
-                     
+                       <svg viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg" class="blob blob4">
+                              <path fill="#6d3b20" d="M 70.88291698094095,0 C 69.08254332751227,22.742642219923546 83.82005439511798,27.67460547971391 75.18207633967982,43.406392012949134 C 66.54409828424167,59.138178546184356 55.126523844108306,48.55739094684064 36.331004759188346,62.927146132940884 C 17.53548567426839,77.29690131904113 19.033231273442347,99.38246222600954 6.177449890697418e-15,100.88541275735011 C -19.033231273442333,102.38836328869068 -25.169863267732755,85.7124793612979 -39.80192033458101,68.93894825830318 C -54.433977401429274,52.165417155308475 -44.28368629304324,51.02602540994705 -58.528228267393025,33.79128834537126 C -72.77277024174282,16.556551280795464 -90.82455943741449,20.33407032539468 -96.78008823198016,1.1852142527449293e-14 C -102.73561702654582,-20.33407032539466 -96.06523728498445,-29.39287841164108 -82.35034344565571,-47.544992956207416 C -68.63544960632697,-65.69710750077375 -62.508098736079134,-69.77153711386312 -41.920512874665214,-72.60845817826532 C -21.33292701325129,-75.44537924266753 -21.695190170733785,-57.61973464736907 -1.0818409296467745e-14,-58.89267721381623 C 21.695190170733763,-60.165619780263384 24.264355069921244,-80.53235353082175 44.86024780826989,-77.70022844405395 C 65.45614054661854,-74.86810335728615 75.8779036602268,-66.98923397775853 82.38357095339457,-47.56417686674504 C 88.88923824656233,-28.139119755731556 72.68329063436963,-22.742642219923546 70.88291698094095,0 Z" fill="#E84A5F" />
+                              </svg>
 
                     </li>
                     <li class="splide__slide slide">
@@ -357,11 +519,26 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                        <svg viewBox="0 0 300 120" class="blob blob5">
+  <g transform="rotate(30 150 60)">
+    <path
+      fill="#7a5a26"
+      d="M10,65
+         C30,20 70,15 105,25
+         C140,35 165,15 200,30
+         C235,45 265,35 290,50
+         C300,65 290,90 260,95
+         C230,100 200,90 165,80
+         C130,70 100,95 65,90
+         C30,85 10,85 10,65
+         Z"
+    />
+  </g>
+</svg>
+
+
+
+
 
                     </li>
                     <li class="splide__slide slide">
@@ -380,11 +557,24 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                       <svg viewBox="0 0 250 70" class="blob blob6">
+  <g transform="rotate(-30 150 60)">
+    <path
+      fill="#563D1B"
+      d="M15,60
+         C35,25 75,25 105,35
+         C140,50 170,35 205,45
+         C240,55 270,45 285,60
+         C295,75 275,95 245,95
+         C215,95 185,85 150,75
+         C115,65 85,85 55,85
+         C30,85 15,75 15,60
+         Z"
+    />
+  </g>
+</svg>
+
+
 
                     </li>
                     <li class="splide__slide slide">
@@ -403,11 +593,23 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                       <svg viewBox="0 0 300 120" class="blob blob7">
+                        <g transform="rotate(23 150 60)">
+  <path
+    fill="#6C4A26"
+    d="M20,70
+       C40,20 90,10 130,25
+       C170,40 200,20 230,35
+       C260,50 275,60 270,75
+       C265,90 240,100 210,95
+       C180,90 150,80 120,70
+       C90,60 60,75 35,80
+       C20,85 10,80 20,70
+       Z"
+  /></g>
+</svg>
+
+
 
                     </li>
                     <li class="splide__slide slide">
@@ -426,11 +628,12 @@ STREAK</h2>
                                 </div>
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                        <svg viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg" class="blob blob8">
+                              <path fill="#7E5A2B" d="M 93.77507499931781,0 C 92.18734985862157,26.037680369398856 78.85061156501695,29.68212430856674 58.88554796470917,49.41084157885949 C 38.92048436440139,69.13955884915224 36.62029352618966,77.43873698113443 13.914820598086687,78.914869081171 C -8.790652330016291,80.39100118120759 -7.9756881154695805,67.58926693387731 -31.936343747702736,55.315369979005816 C -55.89699937993589,43.04147302413432 -73.38926432688903,49.6618669173038 -81.92780193084593,29.81928126168504 C -90.46633953480283,9.976695606066283 -78.55961989659501,-2.7215327495143278 -66.09049416353034,-24.05497264346921 C -53.621368430465665,-45.38841253742409 -51.77008292459432,-43.401895190262785 -32.05129899858723,-55.51447831413449 C -12.332515072580133,-67.6270614380062 -11.53729534102229,-72.69895474280568 12.78464154049804,-72.50530513895605 C 37.10657842201837,-72.31165553510641 44.988840162789145,-72.86620618347496 65.23644852749409,-54.73987989873594 C 85.48405689219904,-36.61355361399693 95.36280014001404,-26.037680369398856 93.77507499931781,0 Z" fill="#E84A5F" />
+                              </svg>
+                       
+
+
 
                     </li>
                     <li class="splide__slide slide">
@@ -454,15 +657,29 @@ STREAK</h2>
 
                             </div>
                         </section>
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob blob3">
-                            <path fill="#8b6a2f"
-                                d="M33.2,27.1C22.2,38.3,-22,38.2,-33,27C-44.1,15.8,-22,-6.5,0,-6.5C22.1,-6.5,44.2,15.9,33.2,27.1Z"
-                                transform="translate(100 100)" />
-                        </svg>
+                       <svg viewBox="0 0 300 120" class="blob blob9">
+  <path
+    fill="#5A3E1B"
+    d="M25,60
+       C45,30 85,25 115,35
+       C145,45 175,35 205,45
+       C235,55 255,65 255,75
+       C255,85 235,95 205,90
+       C175,85 145,75 115,65
+       C85,55 55,65 35,70
+       C25,75 15,70 25,60
+       Z"
+  />
+</svg>
+
+
 
                     </li>
                     <li class="splide__slide slide newyear">
                         <h2>Gelukkig nieuwjaar!</h2>
+                        <div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
 
 
                     </li>
